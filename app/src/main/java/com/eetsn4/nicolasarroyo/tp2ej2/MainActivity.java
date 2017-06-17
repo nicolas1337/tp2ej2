@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText num1,num2;
@@ -38,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
     public void Dividir(View view){
         int n1=Integer.valueOf(num1.getText().toString());
         int n2=Integer.valueOf(num2.getText().toString());
-        int dividir= n1 / n2;
-        resultado.setText(""+dividir);
+        if (n2==0){
+            Toast toast=Toast.makeText(this,"No es posible divir por 0",Toast.LENGTH_SHORT);
+            toast.show();
+        }else {
+            int dividir = n1 / n2;
+            resultado.setText("" + dividir);
+        }
     }
 }
